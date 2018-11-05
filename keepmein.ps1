@@ -66,10 +66,10 @@ function persistenceRun([String]$Payload,[String]$Action){
         }elseif($Action -eq "Remove"){
             if ($IsAdmin){
             write-host "[*] Removing in admin level"
-            reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v UpdateTask 
+            reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v UpdateTask /f
         }else{
             write-host "[*] Removing in user level"
-            reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v UpdateTask
+            reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v UpdateTask /f
         
         }
         }
@@ -89,10 +89,10 @@ function persistenceRunOnce([String]$Payload,[String]$Action){
         }elseif($Action -eq "Remove"){
             if ($IsAdmin){
             write-host "[*] Removing in admin level"
-            reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v UpdateTask 
+            reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v UpdateTask /f
         }else{
             write-host "[*] Removing in user level"
-            reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v UpdateTask
+            reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v UpdateTask /f
         
         }
         }
